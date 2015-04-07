@@ -121,7 +121,7 @@ numstates{TP, K}(::Type{HiddenMarkovModel{TP, K}}) = K
 partype{TP, K}(::HiddenMarkovModel{TP, K}) = TP
 partype{TP, K}(::Type{HiddenMarkovModel{TP, K}}) = TP
 
-function fit{HMM <: HiddenMarkovModel}(hmm_type::Type{HMM}, x; conv_eps=1e-10, init_params=None, fit_param=fit, print_iteration=true)
+function fit{HMM <: HiddenMarkovModel}(hmm_type::Type{HMM}, x; conv_eps=1e-3, init_params=None, fit_param=fit, print_iteration=true)
     len = size(x, 1)
     K = numstates(hmm_type)
     TP = partype(hmm_type)
